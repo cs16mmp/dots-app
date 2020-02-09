@@ -4,6 +4,7 @@ import Constants from 'expo-constants';
 import Navigation from './screens/navigation'
 
 export default function App() {
+  
   return (
     <SafeAreaView style={styles.container}>
       <Navigation/> 

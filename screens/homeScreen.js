@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   SafeAreaView,
   View,
@@ -7,9 +7,6 @@ import {
   Text,
   TouchableHighlight
 } from "react-native";
-import Constants from "expo-constants";
-
-import Navigation from './Navigation'
 
 const DATA = [
   {
@@ -45,27 +42,28 @@ function Item({ title }) {
   );
 }
 
-export default function MainScreen({navigation}) {
-  return (
-    <SafeAreaView style={styles.container}>    
+class homeScreen extends Component {
+  static navigationOptions = {
+    headerShown: false
+  };
+  render() {
+    return (
+      <FlatList
         data={DATA}
-        renderItem=
-        {({ item }) => (
-          <TouchableHighlight onPress={() => navigation.navigate('Detail')}>
-            <Item title={item.title}></Item>
+        renderItem={({ item }) => (
+          <TouchableHighlight
+            onPress={() => this.props.navigation.navigate("ItemScreen")}>
+            <Item title={item.title} />
           </TouchableHighlight>
         )}
         keyExtractor={item => item.id}
-        />
-    </SafeAreaView>
-  );
+      />
+    );
+  }
 }
+export default homeScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: Constants.statusBarHeight
-  },
   item: {
     backgroundColor: "#f9c2ff",
     padding: 30,

@@ -2,6 +2,8 @@ import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableHighlight } from 'react-native';
 import Constants from 'expo-constants';
 
+//Main Screen
+
 const DATA = [
   {
     id: '1',
